@@ -4,6 +4,28 @@ option java_package = "com.example.datastore";
 option java_multiple_files = true;
 
 message SavedNumbers {
+    // Number stored as an Int
     int32 int = 1;
+
+    // Number stored as a String
     string string_int = 2;
+
+    // Enum defining available numbers, consider UNRECOGNISED
+    enum Number {
+        NUMBER_UNSPECIFIED = 0;
+        ZERO = 1;
+        ONE = 2;
+        TWO = 3;
+        THREE = 4;
+        FOUR = 5;
+        FIVE = 6;
+        SIX = 7;
+        SEVEN = 8;
+        EIGHT = 9;
+        NINE = 10;
+        UNKNOWN = 11;
+    }
+
+    // Reference to Enum
+    Number number = 3;
 }

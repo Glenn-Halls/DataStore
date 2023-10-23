@@ -33,6 +33,7 @@ class MainActivity : ComponentActivity() {
                 val viewModel = DatastoreViewModel(context = this)
                 val int = viewModel.currentInt.collectAsState(initial = 0)
                 val stringInt = viewModel.currentStringInt.collectAsState(initial = "ZERO")
+                val number = viewModel.currentNumber.collectAsState(initial = "")
                 val coroutineScope = rememberCoroutineScope()
                 Box(
                     contentAlignment = Alignment.Center,
@@ -58,6 +59,15 @@ class MainActivity : ComponentActivity() {
                                 Text("numberInt")
                             }
                         }
+                        Button(onClick = {
+                            coroutineScope.launch {
+                                viewModel.updateNumber()
+                            }
+                        }) {
+                            Text("ENUM")
+                        }
+                        Text("${number.value}")
+                        Text(text = "${SavedNumbers.Number.entries.toList()}")
                     }
                 }
             }
