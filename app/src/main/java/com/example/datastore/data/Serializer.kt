@@ -8,7 +8,7 @@ import java.io.InputStream
 import java.io.OutputStream
 
 object Serializer : Serializer<SavedNumbers> {
-    override val defaultValue = SavedNumbers.getDefaultInstance()
+    override val defaultValue: SavedNumbers = SavedNumbers.getDefaultInstance()
 
     override suspend fun readFrom(input: InputStream): SavedNumbers {
         try {
